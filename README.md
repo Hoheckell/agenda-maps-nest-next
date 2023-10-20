@@ -17,6 +17,7 @@ DB_PORT= <br/>
 DB_USERNAME=postgres<br/>
 DB_PASSWORD= <br/>
 DB_NAME=postgres<br/>
+#nest mailer => https://github.com/nest-modules/mailer
 MAIL_SMTP=<br/>
 MAIL_FROM= <br/>
 MAIL_NAME= <br/>
