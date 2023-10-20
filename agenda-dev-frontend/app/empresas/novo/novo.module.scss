@@ -1,0 +1,19 @@
+.pageHeader {
+    display: grid;
+    grid-template-columns: repeat(1fr,2);
+    grid-template-rows: 1fr ;
+}
+
+.header {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    align-self: start;
+    justify-self: start;
+}
+
+.loading {
+    grid-column: 2/3;
+    grid-row: 1 / 2;
+    align-self: start;
+    justify-self: start;
+}
