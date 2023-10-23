@@ -3,6 +3,7 @@ Agenda feita com nextjs no frontend e nestjs no backend com recursos de mostrar 
 
 #Para rodar<br/>
 Após clonar o repositório execute o comando <code>npm install</code> dentro da pasta do frontend e também do backend<br/>
+crie a pasta uploads dentro do backend para armazenar as imagens dos contatos
 configure os .env 
 Então:<br/>
  No frontend execute npm run dev<br/>
