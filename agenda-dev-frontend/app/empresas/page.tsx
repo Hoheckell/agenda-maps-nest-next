@@ -11,6 +11,7 @@ import {
   Grid,
   InputAdornment,
   InputLabel,
+  Link,
   MenuItem,
   Modal,
   OutlinedInput,
@@ -401,11 +402,25 @@ export default function Page() {
                   </TableCell>
                   <TableCell align="right">{empresa.nome_fantasia}</TableCell>
                   <TableCell align="right">{empresa.responsavel}</TableCell>
-                  <TableCell align="right">{empresa.email}</TableCell>
+                  <TableCell align="right">
+                    <Link href={"mailto:" + empresa.email} target="_blank">
+                      {empresa.email}
+                    </Link>
+                  </TableCell>
                   <TableCell align="right">{empresa.cnpj}</TableCell>
-                  <TableCell align="right">{empresa.celular}</TableCell>
-                  <TableCell align="right">{empresa.whatsapp}</TableCell>
-                  <TableCell align="right">{empresa.telefone}</TableCell>
+                  <TableCell align="right">{empresa?.celular}</TableCell>
+                  <TableCell align="right">
+                   {empresa.whatsapp && <Link
+                      href={
+                        "https://api.whatsapp.com/send?phone=" +
+                        empresa.whatsapp?.replace(/[\(\)\.\s-]+/g, "")
+                      }
+                      target="_blank"
+                    >
+                      {empresa.whatsapp}
+                    </Link>}
+                  </TableCell>
+                  <TableCell align="right">{empresa?.telefone}</TableCell>
                   <TableCell align="right">{empresa.endereco}</TableCell>
                   <TableCell align="right">
                     <ButtonGroup
@@ -611,14 +626,22 @@ export default function Page() {
               <Button variant="contained" onClick={() => updateEmpresa()}>
                 Alterar
               </Button>
-              <MapContainer myAddress={empresa.endereco} mapWidth={undefined} mapHeight={undefined} />
+              <MapContainer
+                myAddress={empresa.endereco}
+                mapWidth={undefined}
+                mapHeight={undefined}
+              />
             </div>
           </Box>
         </Box>
       </Modal>
       <Modal open={openMap} onClose={handleCloseMap}>
         <Box sx={modalStyle}>
-          <MapContainer myAddress={map} mapWidth={'500px'} mapHeight={'500px'} />
+          <MapContainer
+            myAddress={map}
+            mapWidth={"500px"}
+            mapHeight={"500px"}
+          />
         </Box>
       </Modal>
       <ToastContainer

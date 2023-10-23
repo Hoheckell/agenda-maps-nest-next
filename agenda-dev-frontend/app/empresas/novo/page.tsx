@@ -107,7 +107,7 @@ const NovaEmpresa = () => {
   return (
     <>
       <div className={styles.pageHeader}>
-        <h2 className={styles.header}>Cadastrar contato</h2>
+        <h2 className={styles.header}>Cadastrar empresa</h2>
         <div className={styles.loading}>
           <Loading loading={loading} />
         </div>
@@ -247,7 +247,7 @@ const NovaEmpresa = () => {
             </Button>
           </Grid>
           <Grid item xs={12} lg={8}>
-            <MapContainer myAddress={empresa?.endereco} />
+            <MapContainer myAddress={empresa?.endereco} mapWidth={undefined} mapHeight={undefined} />
           </Grid>
         </Grid>
       </Box>

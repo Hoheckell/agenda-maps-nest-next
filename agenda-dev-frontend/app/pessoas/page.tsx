@@ -372,17 +372,17 @@ export default function Page() {
                     {moment(pessoa.data_nascimento).format("DD/MM/Y")}
                   </TableCell>
                   <TableCell align="right">{pessoa.sexo}</TableCell>
-                  <TableCell align="right">{pessoa.celular}</TableCell>
+                  <TableCell align="right">{pessoa?.celular}</TableCell>
                   <TableCell align="right">
-                    <Link
+                    {pessoa.whatsapp && <Link
                       href={
                         "https://api.whatsapp.com/send?phone=" +
-                        pessoa.whatsapp.replace(/[\(\)\.\s-]+/g, "")
+                        pessoa.whatsapp?.replace(/[\(\)\.\s-]+/g, "")
                       }
                       target="_blank"
                     >
                       {pessoa.whatsapp}
-                    </Link>
+                    </Link>}
                   </TableCell>
                   <TableCell align="right">{pessoa.endereco}</TableCell>
                   <TableCell align="right">

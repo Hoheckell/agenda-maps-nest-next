@@ -63,7 +63,7 @@ export default function Page() {
     };
   }, []);
   return (
-    <div>
+    <>
       <Grid container spacing={2}>
         <Grid item xs={4}>
           <Card sx={{ maxWidth: 345, backgroundColor: "#7ed6df" }}>
@@ -72,11 +72,12 @@ export default function Page() {
                 Pessoas
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                <strong>Total</strong>:{" "}
+                <strong>Total</strong>:&nbsp;
                 <Chip
                   label={pessoas?.count ?? 0}
                   color="success"
-                  variant="outlined"
+                  variant="outlined" 
+                  component="span"
                 />
                 {loading && <Loading loading={loading} theme={undefined} />}
               </Typography>
@@ -93,11 +94,12 @@ export default function Page() {
                 Empresas
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                <strong>Total</strong>:{" "}
+                <strong>Total</strong>:&nbsp;
                 <Chip
                   label={empresas?.count ?? 0}
                   color="primary"
                   variant="outlined"
+                  component="span"
                 />
                 {loading && <Loading loading={loading} theme={undefined} />}
               </Typography>
@@ -114,11 +116,12 @@ export default function Page() {
                 Aniversariantes Hoje
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                <strong>Total</strong>:{" "}
+                <strong>Total</strong>:&nbsp;
                 <Chip
                   label={aniversariantes}
                   color="success"
                   variant="outlined"
+                  component="span"
                 />
                 {loading && <Loading loading={loading} theme={undefined} />}
               </Typography>
@@ -129,6 +132,6 @@ export default function Page() {
           </Card>
         </Grid>
       </Grid>
-    </div>
+    </>
   );
 }
