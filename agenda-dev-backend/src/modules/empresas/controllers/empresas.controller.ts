@@ -14,7 +14,7 @@ import {
   UploadedFile,
   UseInterceptors,
 } from '@nestjs/common';
-import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
+import { ApiBody, ApiOkResponse, ApiOperation, ApiParam, ApiTags } from '@nestjs/swagger';
 import { EmpresasService } from '../services';
 import { EmpresaDto } from '../dto/empresa.dto';
 import { FileInterceptor } from '@nestjs/platform-express';
@@ -61,6 +61,7 @@ export class EmpresasController {
   @HttpCode(201)
   @ApiOperation({ description: 'Cadastrar empresa' })
   @ApiOkResponse({ type: EmpresaDto })
+  @ApiBody({ type: NewEmpresaDto })
   async store(
     @Body() data: NewEmpresaDto,
     @UploadedFile(
@@ -101,6 +102,7 @@ export class EmpresasController {
   @HttpCode(200)
   @ApiOperation({ description: 'Atualizar uma empresa' })
   @ApiOkResponse({ type: EmpresaDto })
+  @ApiParam({ type: 'number', name: 'id' })
   async update(
     @Param('id') id: number,
     @Body() empresa: UpdateEmpresaDto,
